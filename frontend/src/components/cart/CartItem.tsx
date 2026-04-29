@@ -3,6 +3,7 @@ import { useCart } from '@/hooks/useCart';
 import type { CartItem as CartItemT } from '@/types';
 import { formatPriceWhole } from '@/utils/formatters';
 import { resolveImageUrl } from '@/utils/imageUrl';
+import { MenuImage } from '@/components/menu/MenuImage';
 import { QuantityStepper } from '@/components/menu/QuantityStepper';
 
 interface Props {
@@ -18,11 +19,12 @@ export const CartItem = ({ item }: Props) => {
       data-testid={`cart-item-${item.id}`}
       className="flex items-center gap-4 bg-white rounded-2xl border border-brand-50 p-3 shadow-sm"
     >
-      <img
+      <MenuImage
         src={resolveImageUrl(item.image)}
         alt={item.name}
+        category={item.category}
         className="h-[60px] w-[60px] rounded-xl object-cover flex-shrink-0"
-        loading="lazy"
+        iconClassName="h-6 w-6"
       />
       <div className="flex-1 min-w-0">
         <p className="font-semibold text-gray-900 truncate">{item.name}</p>

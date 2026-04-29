@@ -10,6 +10,7 @@ import { useCart } from '@/hooks/useCart';
 import type { Customer, Order } from '@/types';
 import { formatPrice, formatPriceWhole } from '@/utils/formatters';
 import { resolveImageUrl } from '@/utils/imageUrl';
+import { MenuImage } from '@/components/menu/MenuImage';
 
 export const CheckoutPage = () => {
   const navigate = useNavigate();
@@ -81,10 +82,12 @@ export const CheckoutPage = () => {
                   key={i.id}
                   className="flex items-center gap-3 text-sm"
                 >
-                  <img
+                  <MenuImage
                     src={resolveImageUrl(i.image)}
-                    alt=""
-                    className="h-10 w-10 rounded-lg object-cover"
+                    alt={i.name}
+                    category={i.category}
+                    className="h-10 w-10 rounded-lg object-cover flex-shrink-0"
+                    iconClassName="h-4 w-4"
                   />
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-gray-900 truncate">

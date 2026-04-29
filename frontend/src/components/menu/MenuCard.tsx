@@ -3,6 +3,7 @@ import { useCart } from '@/hooks/useCart';
 import type { MenuItem } from '@/types';
 import { formatPriceWhole } from '@/utils/formatters';
 import { resolveImageUrl } from '@/utils/imageUrl';
+import { MenuImage } from './MenuImage';
 import { QuantityStepper } from './QuantityStepper';
 
 interface Props {
@@ -21,11 +22,12 @@ export const MenuCard = ({ item, onSelect, onAdd }: Props) => {
       onClick={() => onSelect(item)}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-brand-50">
-        <img
+        <MenuImage
           src={resolveImageUrl(item.image)}
           alt={item.name}
-          loading="lazy"
+          category={item.category}
           className="h-full w-full object-cover"
+          iconClassName="h-16 w-16"
         />
         <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1 text-xs font-semibold shadow-sm">
           <Star className="h-3 w-3 text-amber-400 fill-amber-400" />

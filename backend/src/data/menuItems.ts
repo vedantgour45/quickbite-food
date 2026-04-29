@@ -43,7 +43,7 @@ export const menuItems: MenuItem[] = [
     description:
       'Buttermilk-fried chicken thigh, slaw, pickles, and chipotle mayo in a soft potato bun.',
     price: 229,
-    image: 'https://images.unsplash.com/photo-1615486171448-42217c0507d3?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800&q=80',
     category: 'burger',
     rating: 4.6,
     prepTime: '15-20 min',

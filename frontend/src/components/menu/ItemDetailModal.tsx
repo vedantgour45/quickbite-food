@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import type { MenuItem } from '@/types';
 import { formatPriceWhole } from '@/utils/formatters';
 import { resolveImageUrl } from '@/utils/imageUrl';
+import { MenuImage } from './MenuImage';
 
 interface Props {
   item: MenuItem | null;
@@ -35,10 +36,13 @@ export const ItemDetailModal = ({
           transition={{ duration: 0.2 }}
         >
           <div className="aspect-[16/9] bg-brand-50 overflow-hidden">
-            <img
+            <MenuImage
               src={resolveImageUrl(item.image)}
               alt={item.name}
+              category={item.category}
+              loading="eager"
               className="w-full h-full object-cover"
+              iconClassName="h-20 w-20"
             />
           </div>
           <div className="p-6 space-y-4">
