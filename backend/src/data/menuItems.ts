@@ -55,7 +55,7 @@ export const menuItems: MenuItem[] = [
     description:
       'Spaghetti tossed in spicy tomato sauce with garlic, chilli flakes, and Italian herbs.',
     price: 259,
-    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=800&q=80',
     category: 'pasta',
     rating: 4.4,
     prepTime: '18-22 min',
@@ -67,7 +67,7 @@ export const menuItems: MenuItem[] = [
     description:
       'Penne in a velvety parmesan cream sauce finished with cracked black pepper and parsley.',
     price: 279,
-    image: 'https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80',
     category: 'pasta',
     rating: 4.5,
     prepTime: '18-22 min',
