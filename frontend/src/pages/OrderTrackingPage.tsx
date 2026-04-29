@@ -98,6 +98,23 @@ export const OrderTrackingPage = () => {
     currentStatus === 'out_for_delivery' || currentStatus === 'delivered';
   const customerFirstName = order.customer.name.split(' ')[0];
 
+  let deliveryTimeText = order.estimatedDelivery;
+  let deliveryLabel = 'Estimated arrival';
+
+  if (currentStatus === 'delivered') {
+    const receivedAt = history.find((h) => h.status === 'received')?.at || order.createdAt;
+    const deliveredAt = history.find((h) => h.status === 'delivered')?.at;
+    if (receivedAt && deliveredAt) {
+      const diffMs = new Date(deliveredAt).getTime() - new Date(receivedAt).getTime();
+      const minutes = Math.max(1, Math.round(diffMs / 60000));
+      deliveryTimeText = `${minutes} min`;
+      deliveryLabel = 'Delivered in';
+    } else {
+      deliveryLabel = 'Order Delivered';
+      deliveryTimeText = 'Successfully';
+    }
+  }
+
   return (
     <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 space-y-6">
       <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 flex items-center gap-3">
@@ -140,13 +157,26 @@ export const OrderTrackingPage = () => {
             style={{ width: `${progress}%` }}
           />
         </div>
-        <div className="p-6 text-center">
-          <p className="text-xs uppercase tracking-wider text-gray-400">
-            Estimated arrival
-          </p>
-          <p className="text-3xl font-extrabold text-brand-600 mt-1">
-            {order.estimatedDelivery}
-          </p>
+        <div
+          className="p-8 text-center relative bg-white bg-center bg-cover"
+          style={{
+            backgroundImage:
+              currentStatus === 'out_for_delivery'
+                ? "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80')"
+                : undefined,
+          }}
+        >
+          {currentStatus === 'out_for_delivery' && (
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-[2px]" />
+          )}
+          <div className="relative z-10">
+            <p className="text-xs uppercase tracking-wider text-gray-500 font-bold">
+              {deliveryLabel}
+            </p>
+            <p className="text-3xl font-extrabold text-brand-600 mt-1">
+              {deliveryTimeText}
+            </p>
+          </div>
         </div>
       </div>
 

@@ -57,7 +57,7 @@ export const OrderSummary = () => {
           </p>
         </div>
         <p className="text-[11px] text-gray-400 text-right mt-0.5">
-          Including VAT
+          Including Taxes
         </p>
       </div>
 
