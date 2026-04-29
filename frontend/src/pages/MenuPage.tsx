@@ -51,16 +51,35 @@ export const MenuPage = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 pb-32">
-      <div className="mb-6">
-        <SearchBar value={search} onChange={setSearch} />
+    <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 pb-32 space-y-8">
+      {/* Hero Banner */}
+      <div className="relative w-full h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-lg">
+        <img
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80"
+          alt="Delicious food spread"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/80 to-transparent" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 drop-shadow-md">
+            Cravings, Satisfied.
+          </h1>
+          <p className="text-lg md:text-xl font-medium max-w-2xl drop-shadow-sm opacity-90">
+            Discover the best meals in town, prepared fresh and delivered straight to your door.
+          </p>
+        </div>
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-5">
-        Explore Menu
-      </h1>
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+          Explore Menu
+        </h2>
+        <div className="w-full md:w-72">
+          <SearchBar value={search} onChange={setSearch} />
+        </div>
+      </div>
 
-      <div className="mb-8">
+      <div>
         <CategoryFilter
           active={activeCategory}
           onChange={setActiveCategory}
